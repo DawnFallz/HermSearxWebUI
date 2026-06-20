@@ -14,18 +14,18 @@ All components are installed, configured, and optionally managed through a unifi
 
 Before installing, ensure your device meets the following:
 
-### 📱 Device
+**📱 Device** :
 - Android 8.0 or higher
 - ARM64 (recommended) or ARMv7 support
 
-### 📦 Apps Required
-- Termux (from F-Droid)
-- Termux:API (optional but recommended)
+**📦 Apps Required**:
+- [Termux](https://f-droid.org/en/packages/com.termux/) (from F-Droid)
+- [Termux:API](https://f-droid.org/en/packages/com.termux.api/) (optional but recommended)
 
-### 💾 Storage
+**💾 Storage**:
 - At least 2–5 GB free storage
 
-### 🌐 Internet
+**🌐 Internet**:
 - Stable internet connection (required for package downloads)
 
 ---
@@ -48,10 +48,10 @@ Before installing, ensure your device meets the following:
 
 ### 1. Install Termux (from F-Droid) and Termux:API (recommended)
 - 👉 [Termux](https://f-droid.org/en/packages/com.termux/)
-- 👉 [Termux:API]( https://f-droid.org/en/packages/com.termux.api/)
+- 👉 [Termux:API](https://f-droid.org/en/packages/com.termux.api/)
 
 ### 2. Update Termux packages
-```bash
+``` bash
 pkg update -y && pkg upgrade -y
 
 ```
@@ -81,21 +81,20 @@ source ~/.bashrc
 
 ```
 
---
+---
 
 ## 🧠 Components Overview
 
-### 🤖 Hermes Agent
+- **🤖 Hermes Agent**:
 AI agent framework for automation and task handling.
 
-### 🔎 SearXNG
+- **🔎 SearXNG**:
 Self-hosted privacy search engine aggregating results from multiple sources.
 
-### 🌐 OpenWebUI
-
+- **🌐 OpenWebUI**:
 Modern UI forinteracting with AI models locally or remotely
 
---
+---
 
 ## ⚠️ Notes
 
@@ -103,7 +102,7 @@ Modern UI forinteracting with AI models locally or remotely
 - OpenWebUI runs inside a Proot Ubuntu environment.
 - Some features require Termux:API for notifications and wake-lock support.
 
---
+---
 
 ## 🛠 Troubleshooting
 
@@ -121,7 +120,7 @@ pkg update && pkg upgrade
 
 ```
 
---
+---
 
 ## 📜 License
 
