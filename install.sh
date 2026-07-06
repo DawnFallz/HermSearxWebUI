@@ -73,7 +73,7 @@ checkbox_menu() {
   }
 
   tput civis
-  stty -echo -icanon time 0 min 0
+  stty -echo -icanon min 1 time 0
 
   cleanup() {
     stty sane
@@ -88,12 +88,16 @@ checkbox_menu() {
   while true; do
     IFS= read -rsn1 key
 
-    if [[ $key == $'\x1b' ]]; then
-      read -rsn2 key
-      case "$key" in
-        "[A") ((cursor--)) ;; # up
-        "[B") ((cursor++)) ;; # down
-      esac
+    if [[ $key == $'\e' ]]; then
+      read -rsn1 key
+      [[ $key == "[" ]] || continue
+      read -rsn1 key
+
+    case "$key" in
+        A) ((cursor--)) ;;
+        B) ((cursor++)) ;;
+    esac
+
     else
       case "$key" in
         " ")
@@ -104,6 +108,7 @@ checkbox_menu() {
           ;;
       esac
     fi
+
 
     ((cursor < 0)) && cursor=0
     ((cursor >= ${#options[@]})) && cursor=$((${#options[@]} - 1))
@@ -153,7 +158,6 @@ detect_termux_api() {
 
 # ----- Installation -----
 
-set -euo pipefail
 pkg install -y ncurses-utils
 clear
 termux-wake-lock
@@ -435,7 +439,7 @@ grep -q "# • ===== HermSearxWebUI ===== •" ~/.bashrc || cat <<EOF >> ~/.bash
 # • ===== HermSearxWebUI ===== •
 EOF
 
-if $install_hermesv; then
+if $install_hermes; then
   grep -q "alias hermes-venv" ~/.bashrc || cat <<EOF >> ~/.bashrc
 # • === hermes-agent === •
 alias hermes-venv="source ~/${HERMES_VENV}/venv/bin/activate"
